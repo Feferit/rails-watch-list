@@ -5,12 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-20.times do
+Movie.destroy_all
+5.times do
   movie = Movie.new(
     title: Faker::Movie.title,
     overview: Faker::Lorem.sentence,
     poster_url: Faker::Internet.url,
-    rating: (0.1..10.0)
+    rating: rand(0.0..10.0)
   )
   movie.save!
 end
